@@ -324,28 +324,28 @@ const ThriveRemoteDesktop = () => {
                   <span className="menu-icon">🤖</span>AI Job Links Portal (NEW!)
                 </div>
                 <div className="menu-item fadeInUp animate-delay-100" onClick={() => { 
-                  handleIconClick('AI Career Portal', 'smart_toy', 'WaitressJobPortal', 450, 325); 
+                  handleIconClick('AI Career Portal', '🎭', 'WaitressJobPortal', 450, 325); 
                   setShowStartMenu(false); 
                 }}>
                   <span className="menu-icon">🎭</span>AI Career Portal
                 </div>
                 <div className="menu-item fadeInUp animate-delay-200" onClick={() => { 
-                  handleIconClick('AI Tools Dashboard', 'smart_toy', 'AIToolsDashboard'); 
+                  handleIconClick('Media Player', '▶️', 'MediaPlayerApp', 400, 500); 
                   setShowStartMenu(false); 
                 }}>
-                  <span className="menu-icon">🔧</span>120+ AI Job Tools
+                  <span className="menu-icon">▶️</span>Media Player
                 </div>
                 <div className="menu-item fadeInUp animate-delay-300" onClick={() => { 
-                  handleIconClick('Live Jobs Portal', 'work', 'LiveJobsPortal'); 
+                  handleIconClick('Calculator', '🧮', 'CalculatorApp', 320, 500); 
                   setShowStartMenu(false); 
                 }}>
-                  <span className="menu-icon">💼</span>Live Job Listings
+                  <span className="menu-icon">🧮</span>Calculator
                 </div>
                 <div className="menu-item fadeInUp animate-delay-400" onClick={() => { 
-                  handleIconClick('Dashboard', 'dashboard', 'UserDashboard'); 
+                  handleIconClick('System Status', '📊', 'SystemStatusApp', 600, 450); 
                   setShowStartMenu(false); 
                 }}>
-                  <span className="menu-icon">📊</span>User Dashboard
+                  <span className="menu-icon">📊</span>System Status
                 </div>
               </div>
               
