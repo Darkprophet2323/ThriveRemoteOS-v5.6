@@ -82,12 +82,55 @@ body {
 }
 
 /* ===== DESKTOP ENVIRONMENT ===== */
+/* ===== DESKTOP ENVIRONMENT ===== */
 .desktop-environment {
   height: 100vh;
-  width: 100vw;
+  background: linear-gradient(135deg, var(--grey-50) 0%, var(--grey-100) 50%, var(--grey-200) 100%);
   position: relative;
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
   overflow: hidden;
+  font-family: var(--font-family);
+}
+
+/* Triangular Background Accents */
+.desktop-environment::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid var(--triangle-light);
+  opacity: 0.4;
+  z-index: 1;
+  animation: floatTriangle 12s ease-in-out infinite;
+}
+
+.desktop-environment::after {
+  content: '';
+  position: absolute;
+  bottom: 20%;
+  right: 8%;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 40px solid var(--triangle-medium);
+  opacity: 0.3;
+  z-index: 1;
+  animation: floatTriangle 15s ease-in-out infinite reverse;
+}
+
+@keyframes floatTriangle {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% { 
+    transform: translateY(-15px) rotate(10deg);
+    opacity: 0.6;
+  }
 }
 
 /* Sophisticated Desktop Wallpaper */
