@@ -124,11 +124,11 @@ const ThriveRemoteDesktop = () => {
     ));
   };
 
-  // Enhanced desktop icon click handler
+  // Enhanced desktop icon click handler with animations
   const handleIconClick = (title, icon, componentName, width = 400, height = 300) => {
     sounds.playClick();
     
-    // Component mapping
+    // Component mapping with all working applications
     const componentMap = {
       'AIJobLinksPortal': <AIJobLinksPortal />,
       'WaitressJobPortal': <WaitressJobPortal />,
@@ -139,6 +139,9 @@ const ThriveRemoteDesktop = () => {
       'NotepadApp': <NotepadApp />,
       'QuantumTerminal': <QuantumTerminal />,
       'ProfessionalSettings': <ProfessionalSettings />,
+      'CalculatorApp': <CalculatorApp />,
+      'MediaPlayerApp': <MediaPlayerApp />,
+      'SystemStatusApp': <SystemStatusApp />,
       // Entertainment components
       'MusicEntertainment': (
         <div style={{padding: '20px', textAlign: 'center', background: 'linear-gradient(135deg, #0D0D0D, #2D2D2D)', color: '#D4AF37'}}>
@@ -165,40 +168,15 @@ const ThriveRemoteDesktop = () => {
             </button>
           </div>
         </div>
-      ),
-      'Calculator': (
-        <div style={{padding: '20px', background: 'linear-gradient(135deg, #0D0D0D, #2D2D2D)', color: '#D4AF37'}}>
-          <h3 style={{fontFamily: 'Playfair Display', marginBottom: '15px'}}>🧮 Entertainment Calculator</h3>
-          <p style={{opacity: 0.8, fontSize: '0.9rem'}}>Calculate salary expectations and job application costs</p>
-          <div style={{marginTop: '15px'}}>
-            <input type="number" placeholder="Enter amount..." style={{padding: '8px', marginRight: '10px', borderRadius: '5px', border: '1px solid #D4AF37'}} />
-            <button className="luxury-btn">Calculate</button>
-          </div>
-        </div>
-      ),
-      'MediaPlayer': (
-        <div style={{padding: '20px', background: 'linear-gradient(135deg, #0D0D0D, #2D2D2D)', color: '#D4AF37'}}>
-          <h3 style={{fontFamily: 'Playfair Display', marginBottom: '15px'}}>▶️ Entertainment Media Center</h3>
-          <p style={{opacity: 0.8, fontSize: '0.9rem'}}>Watch motivational videos and job interview tips</p>
-          <div style={{marginTop: '15px'}}>
-            <button className="luxury-btn">🎬 Play Videos</button>
-          </div>
-        </div>
-      ),
-      'SystemStatus': (
-        <div style={{padding: '20px', background: 'linear-gradient(135deg, #0D0D0D, #2D2D2D)', color: '#D4AF37'}}>
-          <h3 style={{fontFamily: 'Playfair Display', marginBottom: '15px'}}>📊 System Entertainment Status</h3>
-          <p style={{opacity: 0.8, fontSize: '0.9rem'}}>Monitor your job application progress and system performance</p>
-          <div style={{marginTop: '15px'}}>
-            <div>Applications sent: <span style={{color: '#4ECDC4'}}>127</span></div>
-            <div>Interviews scheduled: <span style={{color: '#4ECDC4'}}>5</span></div>
-            <div>Entertainment time: <span style={{color: '#4ECDC4'}}>2.5 hours</span></div>
-          </div>
-        </div>
       )
     };
     
-    const component = componentMap[componentName] || <div>Component not found</div>;
+    const component = componentMap[componentName] || (
+      <div style={{padding: '20px', textAlign: 'center', background: 'linear-gradient(135deg, #0D0D0D, #2D2D2D)', color: '#D4AF37'}}>
+        <h3>🚀 Coming Soon</h3>
+        <p>This application is under development</p>
+      </div>
+    );
     
     const newWindow = {
       id: Date.now(),
