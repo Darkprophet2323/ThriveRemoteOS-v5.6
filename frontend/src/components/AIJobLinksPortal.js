@@ -430,73 +430,263 @@ const AIJobLinksPortal = () => {
         </div>
       </div>
 
-      {/* Category Navigation */}
+      {/* Enhanced Category Navigation */}
       {!searchTerm && (
-        <div className="category-nav">
-          {Object.entries(aiJobCompanies).map(([key, category]) => (
-            <button
-              key={key}
-              onClick={() => setSelectedCategory(key)}
-              className={`category-btn ${selectedCategory === key ? 'active' : ''}`}
-            >
-              {category.name}
-              <span className="company-count">({category.companies.length})</span>
-            </button>
-          ))}
+        <div style={{
+          padding: '30px',
+          background: '#fff',
+          borderBottom: '1px solid rgba(0,0,0,0.05)'
+        }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '15px',
+            maxWidth: '1000px',
+            margin: '0 auto'
+          }}>
+            {Object.entries(aiJobCompanies).map(([key, category]) => (
+              <button
+                key={key}
+                onClick={() => setSelectedCategory(key)}
+                style={{
+                  padding: '18px 20px',
+                  border: 'none',
+                  background: selectedCategory === key 
+                    ? 'linear-gradient(135deg, #212529 0%, #495057 100%)'
+                    : 'rgba(248, 249, 250, 0.8)',
+                  color: selectedCategory === key ? '#fff' : '#495057',
+                  borderRadius: '15px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  fontSize: '0.9rem',
+                  fontWeight: '600',
+                  border: '2px solid',
+                  borderColor: selectedCategory === key ? '#212529' : 'rgba(233, 236, 239, 0.5)',
+                  boxShadow: selectedCategory === key 
+                    ? '0 8px 25px rgba(33, 37, 41, 0.3)'
+                    : '0 4px 15px rgba(0,0,0,0.05)',
+                  transform: selectedCategory === key ? 'translateY(-2px)' : 'translateY(0)',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+                onMouseEnter={(e) => {
+                  if (selectedCategory !== key) {
+                    e.target.style.transform = 'translateY(-3px)';
+                    e.target.style.boxShadow = '0 8px 20px rgba(0,0,0,0.1)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (selectedCategory !== key) {
+                    e.target.style.transform = 'translateY(0)';
+                    e.target.style.boxShadow = '0 4px 15px rgba(0,0,0,0.05)';
+                  }
+                }}
+              >
+                <div style={{ fontSize: '1.2rem', marginBottom: '5px' }}>
+                  {category.name.split(' ')[0]}
+                </div>
+                <div style={{ fontSize: '0.75rem', opacity: 0.8 }}>
+                  {category.companies.length} platforms
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
       )}
 
-      {/* Content Section */}
-      <div className="portal-content">
+      {/* Professional Content Section */}
+      <div style={{
+        padding: '40px 30px',
+        background: '#fff'
+      }}>
         {!searchTerm && (
-          <div className="category-header">
-            <h3>{aiJobCompanies[selectedCategory]?.name}</h3>
-            <p>{aiJobCompanies[selectedCategory]?.description}</p>
+          <div style={{
+            textAlign: 'center',
+            marginBottom: '35px'
+          }}>
+            <h3 style={{
+              fontSize: '1.8rem',
+              fontWeight: '700',
+              color: '#212529',
+              marginBottom: '8px'
+            }}>
+              {aiJobCompanies[selectedCategory]?.name}
+            </h3>
+            <p style={{
+              color: '#6c757d',
+              fontSize: '1rem'
+            }}>
+              {aiJobCompanies[selectedCategory]?.description}
+            </p>
           </div>
         )}
 
-        <div className="companies-grid">
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))',
+          gap: '25px',
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}>
           {filteredCompanies.map((company, index) => (
-            <div key={index} className="company-card">
-              <div className="company-header">
-                <div className="company-logo">{company.logo}</div>
-                <div className="company-info">
-                  <h4>{company.name}</h4>
-                  <span 
-                    className="tier-badge"
-                    style={{ backgroundColor: getTierColor(company.tier) }}
+            <div key={index} style={{
+              background: 'linear-gradient(135deg, #fff 0%, #f8f9fa 100%)',
+              border: '1px solid rgba(233, 236, 239, 0.6)',
+              borderRadius: '20px',
+              padding: '25px',
+              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+              position: 'relative',
+              overflow: 'hidden',
+              boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
+              e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+              e.currentTarget.style.borderColor = '#495057';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0) scale(1)';
+              e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.08)';
+              e.currentTarget.style.borderColor = 'rgba(233, 236, 239, 0.6)';
+            }}
+            >
+              {/* Subtle Background Pattern */}
+              <div style={{
+                position: 'absolute',
+                top: '-50%',
+                right: '-50%',
+                width: '100%',
+                height: '100%',
+                background: `radial-gradient(circle, ${getTierColor(company.tier)}15 0%, transparent 70%)`,
+                zIndex: 0
+              }} />
+              
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                {/* Company Header */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  marginBottom: '18px'
+                }}>
+                  <div style={{
+                    fontSize: '2.5rem',
+                    marginRight: '15px',
+                    background: `linear-gradient(135deg, ${getTierColor(company.tier)}, ${getTierColor(company.tier)}80)`,
+                    borderRadius: '15px',
+                    width: '60px',
+                    height: '60px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: `0 4px 15px ${getTierColor(company.tier)}30`
+                  }}>
+                    {company.logo}
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <h4 style={{
+                      margin: '0 0 8px 0',
+                      fontSize: '1.3rem',
+                      fontWeight: '700',
+                      color: '#212529'
+                    }}>
+                      {company.name}
+                    </h4>
+                    <span style={{
+                      display: 'inline-block',
+                      padding: '4px 12px',
+                      borderRadius: '20px',
+                      fontSize: '0.75rem',
+                      fontWeight: '600',
+                      color: '#fff',
+                      background: `linear-gradient(135deg, ${getTierColor(company.tier)}, ${getTierColor(company.tier)}CC)`,
+                      boxShadow: `0 2px 8px ${getTierColor(company.tier)}40`
+                    }}>
+                      {company.tier}
+                    </span>
+                  </div>
+                </div>
+                
+                {/* Description */}
+                <p style={{
+                  marginBottom: '18px',
+                  lineHeight: '1.6',
+                  color: '#495057',
+                  fontSize: '0.95rem'
+                }}>
+                  {company.description}
+                </p>
+                
+                {/* Features Grid */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+                  gap: '8px',
+                  marginBottom: '20px'
+                }}>
+                  {company.features.map((feature, idx) => (
+                    <div key={idx} style={{
+                      background: 'rgba(248, 249, 250, 0.8)',
+                      color: '#495057',
+                      padding: '6px 10px',
+                      borderRadius: '8px',
+                      fontSize: '0.75rem',
+                      fontWeight: '500',
+                      border: '1px solid rgba(233, 236, 239, 0.5)',
+                      textAlign: 'center'
+                    }}>
+                      ✨ {feature}
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Footer */}
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  paddingTop: '15px',
+                  borderTop: '1px solid rgba(233, 236, 239, 0.5)'
+                }}>
+                  <div style={{
+                    color: '#28a745',
+                    fontWeight: '700',
+                    fontSize: '1rem'
+                  }}>
+                    💰 {company.pricing}
+                  </div>
+                  <a
+                    href={company.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      background: 'linear-gradient(135deg, #212529 0%, #495057 100%)',
+                      color: '#fff',
+                      padding: '10px 20px',
+                      borderRadius: '25px',
+                      textDecoration: 'none',
+                      fontWeight: '600',
+                      fontSize: '0.9rem',
+                      transition: 'all 0.3s ease',
+                      boxShadow: '0 4px 15px rgba(33, 37, 41, 0.3)',
+                      border: 'none',
+                      cursor: 'pointer'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = 'scale(1.05)';
+                      e.target.style.boxShadow = '0 6px 20px rgba(33, 37, 41, 0.4)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = 'scale(1)';
+                      e.target.style.boxShadow = '0 4px 15px rgba(33, 37, 41, 0.3)';
+                    }}
+                    onClick={() => {
+                      console.log(`Visited: ${company.name}`);
+                    }}
                   >
-                    {company.tier}
-                  </span>
+                    🚀 Visit Platform →
+                  </a>
                 </div>
-              </div>
-              
-              <p className="company-description">{company.description}</p>
-              
-              <div className="features-list">
-                {company.features.map((feature, idx) => (
-                  <span key={idx} className="feature-tag">
-                    ✨ {feature}
-                  </span>
-                ))}
-              </div>
-              
-              <div className="company-footer">
-                <div className="pricing">
-                  💰 {company.pricing}
-                </div>
-                <a
-                  href={company.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="visit-btn"
-                  onClick={() => {
-                    // Log click for analytics
-                    console.log(`Visited: ${company.name}`);
-                  }}
-                >
-                  🚀 Visit Platform →
-                </a>
               </div>
             </div>
           ))}
