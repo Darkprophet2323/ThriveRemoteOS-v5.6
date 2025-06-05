@@ -512,10 +512,11 @@ job_service = JobFetchingService()
 @app.get("/api/")
 async def read_root():
     return {
-        "message": "ThriveRemoteOS API v5.2 with Noir-Gold Luxury Theme",
+        "message": "ThriveRemoteOS API v5.5 - AI Job Entertainment Platform",
         "timestamp": datetime.now().isoformat(),
-        "features": ["desktop", "virtual_pets", "ai_jobs", "luxury_music", "noir_aesthetic"],
-        "music_system": "luxury_fallback_playlist"
+        "features": ["ai_job_links_portal", "desktop_environment", "virtual_pets", "ai_jobs", "entertainment_hub", "noir_aesthetic"],
+        "music_system": "luxury_fallback_playlist",
+        "new_in_v55": ["AI Job Links Portal", "Enhanced Entertainment", "25+ AI Job Platforms"]
     }
 
 # Music API Endpoints (Fallback System - No YouTube API Required)
