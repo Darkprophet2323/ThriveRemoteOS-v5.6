@@ -38,7 +38,19 @@ const ThriveRemoteDesktop = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [showStartMenu, setShowStartMenu] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [rightClickMenu, setRightClickMenu] = useState({ show: false, x: 0, y: 0 });
   const sounds = useSounds();
+  
+  // Right-click context menu handler
+  const handleRightClick = (e) => {
+    e.preventDefault();
+    setRightClickMenu({
+      show: true,
+      x: e.clientX,
+      y: e.clientY
+    });
+    setShowStartMenu(false);
+  };
 
   useEffect(() => {
     const fetchSystemData = async () => {
