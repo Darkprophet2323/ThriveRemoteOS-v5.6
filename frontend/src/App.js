@@ -964,6 +964,41 @@ function DesktopEnvironment() {
   const [bootComplete, setBootComplete] = useState(false);
   const [showStartMenu, setShowStartMenu] = useState(false);
 
+  // Loading completion handler
+  const handleLoadingComplete = () => {
+    // Apply saved theme settings
+    const savedSettings = localStorage.getItem('thriveRemoteSettings');
+    if (savedSettings) {
+      const settings = JSON.parse(savedSettings);
+      // Apply theme immediately
+      const root = document.documentElement;
+      
+      // Apply saved theme
+      if (settings.theme) {
+        setTimeout(() => {
+          window.dispatchEvent(new CustomEvent('applyTheme', { 
+            detail: { theme: settings.theme, settings } 
+          }));
+        }, 100);
+      }
+      
+      // Apply other settings
+      if (settings.fontSize) {
+        document.body.classList.add(`font-${settings.fontSize}`);
+      }
+      
+      if (settings.darkMode) {
+        document.body.classList.add('dark-mode');
+      }
+      
+      if (settings.highContrast) {
+        document.body.classList.add('high-contrast');
+      }
+    }
+    
+    setBootComplete(true);
+  };
+
   // Right-click context menu handler
   const handleRightClick = (e) => {
     e.preventDefault();
