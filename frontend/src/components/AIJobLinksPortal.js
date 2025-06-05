@@ -334,21 +334,98 @@ const AIJobLinksPortal = () => {
   }
 
   return (
-    <div className="ai-job-portal">
-      <div className="portal-header">
-        <h2>🤖 AI Job Application Companies Portal v5.5</h2>
-        <p className="portal-subtitle">
-          Entertainment hub featuring {Object.values(aiJobCompanies).reduce((total, cat) => total + cat.companies.length, 0)}+ AI-powered job platforms
+    <div className="ai-job-portal" style={{
+      background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #f1f3f4 50%, #e9ecef 75%, #f8f9fa 100%)',
+      borderRadius: '20px',
+      boxShadow: '0 25px 50px rgba(0,0,0,0.1), 0 10px 30px rgba(0,0,0,0.05)',
+      border: '1px solid rgba(108, 117, 125, 0.1)',
+      overflow: 'hidden'
+    }}>
+      {/* Sophisticated Header */}
+      <div style={{
+        background: 'linear-gradient(135deg, #212529 0%, #343a40 50%, #495057 100%)',
+        padding: '30px',
+        textAlign: 'center',
+        color: '#fff',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: '-50%',
+          left: '-50%',
+          width: '200%',
+          height: '200%',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)',
+          animation: 'subtleRotate 20s linear infinite'
+        }} />
+        
+        <h2 style={{
+          fontSize: '2.5rem',
+          fontWeight: '800',
+          marginBottom: '8px',
+          background: 'linear-gradient(135deg, #fff 0%, #f8f9fa 50%, #e9ecef 100%)',
+          backgroundClip: 'text',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          position: 'relative',
+          zIndex: 2
+        }}>
+          🤖 AI Job Links Portal
+        </h2>
+        <p style={{
+          fontSize: '1.1rem',
+          opacity: 0.9,
+          fontWeight: '400',
+          position: 'relative',
+          zIndex: 2
+        }}>
+          Professional AI-Powered Job Application Platform
+        </p>
+        <p style={{
+          fontSize: '0.9rem',
+          opacity: 0.7,
+          marginTop: '8px',
+          position: 'relative',
+          zIndex: 2
+        }}>
+          Featuring {Object.values(aiJobCompanies).reduce((total, cat) => total + cat.companies.length, 0)}+ Premium AI Platforms
         </p>
         
-        {/* Search Bar */}
-        <div className="search-section">
+        {/* Enhanced Search Bar */}
+        <div style={{
+          marginTop: '25px',
+          maxWidth: '400px',
+          margin: '25px auto 0',
+          position: 'relative',
+          zIndex: 2
+        }}>
           <input
             type="text"
-            placeholder="🔍 Search AI job platforms..."
+            placeholder="🔍 Search premium AI job platforms..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
+            style={{
+              width: '100%',
+              padding: '15px 20px',
+              border: 'none',
+              borderRadius: '50px',
+              background: 'rgba(255,255,255,0.95)',
+              color: '#212529',
+              fontSize: '1rem',
+              boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
+              backdropFilter: 'blur(10px)',
+              outline: 'none',
+              transition: 'all 0.3s ease'
+            }}
+            onFocus={(e) => {
+              e.target.style.transform = 'scale(1.02)';
+              e.target.style.boxShadow = '0 12px 35px rgba(0,0,0,0.15)';
+            }}
+            onBlur={(e) => {
+              e.target.style.transform = 'scale(1)';
+              e.target.style.boxShadow = '0 8px 25px rgba(0,0,0,0.1)';
+            }}
           />
         </div>
       </div>
