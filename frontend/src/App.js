@@ -322,7 +322,7 @@ const ThriveRemoteDesktop = () => {
                   handleIconClick('AI Job Links Portal', '🤖', 'AIJobLinksPortal', 800, 600); 
                   setShowStartMenu(false); 
                 }}>
-                  <span className="menu-icon">🤖</span>AI Job Links Portal (NEW!)
+                  <span className="menu-icon">🤖</span>AI Job Links Portal
                 </div>
                 <div className="menu-item fadeInUp animate-delay-100" onClick={() => { 
                   handleIconClick('AI Career Portal', '🎭', 'WaitressJobPortal', 450, 325); 
@@ -331,10 +331,10 @@ const ThriveRemoteDesktop = () => {
                   <span className="menu-icon">🎭</span>AI Career Portal
                 </div>
                 <div className="menu-item fadeInUp animate-delay-200" onClick={() => { 
-                  handleIconClick('Media Player', '▶️', 'MediaPlayerApp', 400, 500); 
+                  handleIconClick('Content Manager', '📝', 'CompactCMS', 500, 400); 
                   setShowStartMenu(false); 
                 }}>
-                  <span className="menu-icon">▶️</span>Media Player
+                  <span className="menu-icon">📝</span>Content Manager
                 </div>
                 <div className="menu-item fadeInUp animate-delay-300" onClick={() => { 
                   handleIconClick('Calculator', '🧮', 'CalculatorApp', 320, 500); 
