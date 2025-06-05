@@ -1,16 +1,53 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const SimpleBootLoader = ({ onComplete }) => {
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
+
+const SophisticatedBootLoader = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [status, setStatus] = useState('Initializing ThriveRemoteOS v5.5...');
+  const [liveData, setLiveData] = useState({
+    systemMetrics: { cpu: 0, memory: 0, network: 'Connecting' },
+    aiTools: 0,
+    jobs: 0,
+    weather: 'Loading...'
+  });
 
   useEffect(() => {
+    // Fetch live data
+    const fetchLiveData = async () => {
+      try {
+        const [systemResponse, aiToolsResponse, jobsResponse] = await Promise.all([
+          axios.get(`${API}/system/performance`).catch(() => ({ data: { performance: { cpu_usage: 15, memory_usage: 32 } } })),
+          axios.get(`${API}/content/ai-tools`).catch(() => ({ data: { total_tools: 120 } })),
+          axios.get(`${API}/jobs/live`).catch(() => ({ data: { total: 250 } }))
+        ]);
+
+        setLiveData({
+          systemMetrics: {
+            cpu: systemResponse.data.performance?.cpu_usage || Math.floor(Math.random() * 30) + 10,
+            memory: systemResponse.data.performance?.memory_usage || Math.floor(Math.random() * 40) + 20,
+            network: 'Connected'
+          },
+          aiTools: aiToolsResponse.data.total_tools || 120,
+          jobs: jobsResponse.data.total || 250,
+          weather: '22°C Clear'
+        });
+      } catch (error) {
+        console.log('Using fallback data for loading screen');
+      }
+    };
+
+    fetchLiveData();
+
     const bootSequence = [
-      { progress: 20, status: 'Loading AI Job Entertainment Platform...', delay: 800 },
-      { progress: 40, status: 'Connecting to backend services...', delay: 600 },
-      { progress: 60, status: 'Loading AI job links database...', delay: 700 },
-      { progress: 80, status: 'Initializing desktop environment...', delay: 500 },
-      { progress: 100, status: 'ThriveRemoteOS v5.5 Ready!', delay: 400 }
+      { progress: 15, status: 'Connecting to AI job entertainment services...', delay: 600 },
+      { progress: 35, status: 'Loading 120+ AI tools database...', delay: 700 },
+      { progress: 55, status: 'Initializing desktop environment...', delay: 500 },
+      { progress: 75, status: 'Preparing AI job links portal...', delay: 600 },
+      { progress: 90, status: 'Finalizing entertainment platform...', delay: 400 },
+      { progress: 100, status: 'ThriveRemoteOS v5.5 Ready!', delay: 500 }
     ];
 
     const runBootSequence = async () => {
@@ -20,7 +57,6 @@ const SimpleBootLoader = ({ onComplete }) => {
         setStatus(step.status);
       }
       
-      // Complete the loading
       setTimeout(() => {
         if (onComplete) onComplete();
       }, 800);
@@ -36,299 +72,242 @@ const SimpleBootLoader = ({ onComplete }) => {
       left: 0,
       right: 0,
       bottom: 0,
-      background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%)',
+      background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%)',
       display: 'flex',
-      flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      color: '#fff',
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif',
       zIndex: 10000,
       overflow: 'hidden'
     }}>
       
-      {/* Animated Background Particles */}
-      <div className="particles">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="particle"
-            style={{
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
+      {/* Subtle Background Pattern */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: `
+          radial-gradient(circle at 25% 25%, rgba(108, 117, 125, 0.03) 0%, transparent 50%),
+          radial-gradient(circle at 75% 75%, rgba(73, 80, 87, 0.03) 0%, transparent 50%)
+        `,
+        animation: 'subtleMove 20s ease-in-out infinite'
+      }} />
 
       {/* Main Content Container */}
       <div style={{
+        background: 'rgba(255, 255, 255, 0.95)',
+        borderRadius: '20px',
+        padding: '50px 60px',
+        boxShadow: '0 20px 60px rgba(108, 117, 125, 0.15), 0 8px 25px rgba(108, 117, 125, 0.1)',
+        border: '1px solid rgba(233, 236, 239, 0.8)',
+        backdropFilter: 'blur(20px)',
         textAlign: 'center',
-        zIndex: 2,
-        position: 'relative'
+        maxWidth: '500px',
+        width: '90%',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
         
-        {/* Fancy Fan Loader */}
-        <div className="fan-loader-container" style={{
-          marginBottom: '40px',
-          position: 'relative'
+        {/* Sophisticated Logo */}
+        <div style={{
+          fontSize: '3rem',
+          marginBottom: '20px',
+          color: '#495057',
+          filter: 'drop-shadow(0 2px 8px rgba(108, 117, 125, 0.2))',
+          animation: 'sophisticatedPulse 3s ease-in-out infinite'
         }}>
-          <div className="fan-loader">
-            <div className="fan-blade"></div>
-            <div className="fan-blade"></div>
-            <div className="fan-blade"></div>
-            <div className="fan-blade"></div>
-            <div className="fan-blade"></div>
-            <div className="fan-blade"></div>
-            <div className="fan-blade"></div>
-            <div className="fan-blade"></div>
-          </div>
-          
-          {/* Center Logo */}
-          <div className="center-logo">
-            🤖
-          </div>
+          🤖
         </div>
 
         {/* Title */}
         <h1 style={{
-          fontSize: '2.8rem',
-          fontWeight: '800',
-          background: 'linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #FFD700 100%)',
-          backgroundClip: 'text',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          marginBottom: '15px',
-          textAlign: 'center',
-          letterSpacing: '-0.02em'
+          fontSize: '2rem',
+          fontWeight: '700',
+          color: '#212529',
+          marginBottom: '8px',
+          letterSpacing: '-0.025em'
         }}>
           ThriveRemoteOS V5.5
         </h1>
 
         {/* Subtitle */}
         <p style={{
-          fontSize: '1.3rem',
-          color: '#ccc',
-          marginBottom: '50px',
-          textAlign: 'center',
-          fontWeight: '300'
+          fontSize: '1rem',
+          color: '#6c757d',
+          marginBottom: '40px',
+          fontWeight: '500'
         }}>
           AI Job Entertainment Platform
         </p>
 
-        {/* Advanced Progress Bar */}
+        {/* Sophisticated Progress Bar */}
         <div style={{
-          width: '450px',
-          height: '8px',
-          background: 'rgba(255,255,255,0.1)',
-          borderRadius: '4px',
-          overflow: 'hidden',
-          marginBottom: '25px',
-          position: 'relative',
-          boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3)'
+          marginBottom: '30px'
         }}>
-          <div 
-            className="progress-fill"
-            style={{
+          <div style={{
+            width: '100%',
+            height: '6px',
+            background: '#e9ecef',
+            borderRadius: '3px',
+            overflow: 'hidden',
+            marginBottom: '8px',
+            position: 'relative'
+          }}>
+            <div style={{
               width: `${progress}%`,
               height: '100%',
-              background: 'linear-gradient(90deg, #D4AF37, #F4D03F, #FFD700)',
-              borderRadius: '4px',
-              transition: 'width 0.5s ease',
+              background: 'linear-gradient(90deg, #6c757d, #495057)',
+              borderRadius: '3px',
+              transition: 'width 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
               position: 'relative',
               overflow: 'hidden'
-            }}
-          >
-            <div className="progress-shine"></div>
+            }}>
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: '-100%',
+                width: '100%',
+                height: '100%',
+                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
+                animation: 'sophisticatedShine 2s ease-in-out infinite'
+              }} />
+            </div>
+          </div>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            fontSize: '0.75rem',
+            color: '#868e96'
+          }}>
+            <span>{progress}%</span>
+            <span>Professional Loading</span>
           </div>
         </div>
 
         {/* Status */}
         <p style={{
-          fontSize: '1.1rem',
-          color: '#D4AF37',
-          textAlign: 'center',
-          marginBottom: '15px',
-          fontWeight: '500'
+          fontSize: '0.95rem',
+          color: '#495057',
+          marginBottom: '35px',
+          fontWeight: '500',
+          height: '24px'
         }}>
           {status}
         </p>
 
-        {/* Progress Percentage */}
-        <p style={{
-          fontSize: '1rem',
-          color: '#888',
-          textAlign: 'center',
-          fontWeight: '600'
+        {/* Live Data Grid */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '20px',
+          marginBottom: '25px'
         }}>
-          {progress}% Complete
-        </p>
+          <DataCard
+            icon="🖥️"
+            label="System"
+            value={`${liveData.systemMetrics.cpu}% CPU`}
+            sublabel={`${liveData.systemMetrics.memory}% RAM`}
+          />
+          <DataCard
+            icon="🌐"
+            label="Network"
+            value={liveData.systemMetrics.network}
+            sublabel="High Speed"
+          />
+          <DataCard
+            icon="🔧"
+            label="AI Tools"
+            value={`${liveData.aiTools}+`}
+            sublabel="Available"
+          />
+          <DataCard
+            icon="💼"
+            label="Live Jobs"
+            value={`${liveData.jobs}+`}
+            sublabel="Opportunities"
+          />
+        </div>
+
+        {/* Footer Info */}
+        <div style={{
+          fontSize: '0.75rem',
+          color: '#868e96',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '15px'
+        }}>
+          <span>🔒 Secure</span>
+          <span>•</span>
+          <span>⚡ Fast</span>
+          <span>•</span>
+          <span>🎯 Professional</span>
+        </div>
       </div>
 
       <style jsx>{`
-        .particles {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-          z-index: 1;
-        }
-
-        .particle {
-          position: absolute;
-          width: 4px;
-          height: 4px;
-          background: linear-gradient(45deg, #D4AF37, #F4D03F);
-          border-radius: 50%;
-          opacity: 0.6;
-          animation: float-up linear infinite;
-        }
-
-        @keyframes float-up {
-          0% {
-            transform: translateY(100vh) scale(0);
-            opacity: 0;
-          }
-          10% {
-            opacity: 1;
-          }
-          90% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(-10vh) scale(1);
-            opacity: 0;
-          }
-        }
-
-        .fan-loader-container {
-          position: relative;
-          width: 120px;
-          height: 120px;
-          margin: 0 auto;
-        }
-
-        .fan-loader {
-          position: relative;
-          width: 120px;
-          height: 120px;
-          animation: fan-rotate 2s linear infinite;
-        }
-
-        .fan-blade {
-          position: absolute;
-          width: 8px;
-          height: 40px;
-          background: linear-gradient(180deg, #D4AF37 0%, #F4D03F 50%, transparent 100%);
-          border-radius: 4px 4px 0 0;
-          transform-origin: 50% 100%;
-          top: 10px;
-          left: 50%;
-          margin-left: -4px;
-        }
-
-        .fan-blade:nth-child(1) { transform: rotate(0deg); }
-        .fan-blade:nth-child(2) { transform: rotate(45deg); }
-        .fan-blade:nth-child(3) { transform: rotate(90deg); }
-        .fan-blade:nth-child(4) { transform: rotate(135deg); }
-        .fan-blade:nth-child(5) { transform: rotate(180deg); }
-        .fan-blade:nth-child(6) { transform: rotate(225deg); }
-        .fan-blade:nth-child(7) { transform: rotate(270deg); }
-        .fan-blade:nth-child(8) { transform: rotate(315deg); }
-
-        @keyframes fan-rotate {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-
-        .center-logo {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          font-size: 2.5rem;
-          z-index: 3;
-          animation: logo-pulse 2s ease-in-out infinite;
-          filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
-        }
-
-        @keyframes logo-pulse {
+        @keyframes sophisticatedPulse {
           0%, 100% { 
-            transform: translate(-50%, -50%) scale(1);
-            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+            transform: scale(1);
+            opacity: 1;
           }
           50% { 
-            transform: translate(-50%, -50%) scale(1.1);
-            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+            transform: scale(1.05);
+            opacity: 0.9;
           }
         }
 
-        .progress-fill {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .progress-shine {
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, 
-            transparent 0%, 
-            rgba(255,255,255,0.4) 50%, 
-            transparent 100%
-          );
-          animation: shine 2s ease-in-out infinite;
-        }
-
-        @keyframes shine {
+        @keyframes sophisticatedShine {
           0% { left: -100%; }
           100% { left: 100%; }
         }
 
-        /* Additional effects */
-        @keyframes glow {
-          0%, 100% { 
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-          }
-          50% { 
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
-          }
-        }
-
-        .fan-loader-container {
-          animation: glow 3s ease-in-out infinite;
-          border-radius: 50%;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-          .fan-loader-container {
-            width: 100px;
-            height: 100px;
-          }
-          
-          .fan-loader {
-            width: 100px;
-            height: 100px;
-          }
-          
-          .fan-blade {
-            width: 6px;
-            height: 35px;
-          }
-          
-          .center-logo {
-            font-size: 2rem;
-          }
+        @keyframes subtleMove {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-10px) rotate(1deg); }
         }
       `}</style>
     </div>
   );
 };
 
-export default SimpleBootLoader;
+const DataCard = ({ icon, label, value, sublabel }) => (
+  <div style={{
+    background: 'rgba(248, 249, 250, 0.8)',
+    borderRadius: '12px',
+    padding: '16px',
+    border: '1px solid rgba(233, 236, 239, 0.6)',
+    textAlign: 'center',
+    transition: 'all 0.3s ease'
+  }}>
+    <div style={{ fontSize: '1.25rem', marginBottom: '6px' }}>{icon}</div>
+    <div style={{
+      fontSize: '0.7rem',
+      color: '#6c757d',
+      fontWeight: '600',
+      textTransform: 'uppercase',
+      letterSpacing: '0.5px',
+      marginBottom: '4px'
+    }}>
+      {label}
+    </div>
+    <div style={{
+      fontSize: '0.9rem',
+      fontWeight: '700',
+      color: '#212529',
+      marginBottom: '2px'
+    }}>
+      {value}
+    </div>
+    <div style={{
+      fontSize: '0.65rem',
+      color: '#868e96'
+    }}>
+      {sublabel}
+    </div>
+  </div>
+);
+
+export default SophisticatedBootLoader;
