@@ -693,267 +693,123 @@ const AIJobLinksPortal = () => {
         </div>
       </div>
 
-      {/* Quick Stats */}
-      <div className="portal-stats">
-        <div className="stat-item">
-          <span className="stat-number">{Object.values(aiJobCompanies).reduce((total, cat) => total + cat.companies.length, 0)}+</span>
-          <span className="stat-label">AI Platforms</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-number">{Object.keys(aiJobCompanies).length}</span>
-          <span className="stat-label">Categories</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-number">24/7</span>
-          <span className="stat-label">Available</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-number">Free</span>
-          <span className="stat-label">to Browse</span>
+      {/* Professional Statistics */}
+      <div style={{
+        background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
+        padding: '40px 30px',
+        borderTop: '1px solid rgba(0,0,0,0.05)'
+      }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: '25px',
+          maxWidth: '800px',
+          margin: '0 auto'
+        }}>
+          <div style={{
+            background: '#fff',
+            padding: '25px',
+            borderRadius: '15px',
+            textAlign: 'center',
+            boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
+            border: '1px solid rgba(233, 236, 239, 0.5)'
+          }}>
+            <div style={{
+              fontSize: '2.5rem',
+              fontWeight: '800',
+              color: '#212529',
+              marginBottom: '5px'
+            }}>
+              {Object.values(aiJobCompanies).reduce((total, cat) => total + cat.companies.length, 0)}+
+            </div>
+            <div style={{
+              color: '#6c757d',
+              fontWeight: '600',
+              fontSize: '0.9rem'
+            }}>
+              AI Platforms
+            </div>
+          </div>
+          
+          <div style={{
+            background: '#fff',
+            padding: '25px',
+            borderRadius: '15px',
+            textAlign: 'center',
+            boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
+            border: '1px solid rgba(233, 236, 239, 0.5)'
+          }}>
+            <div style={{
+              fontSize: '2.5rem',
+              fontWeight: '800',
+              color: '#212529',
+              marginBottom: '5px'
+            }}>
+              {Object.keys(aiJobCompanies).length}
+            </div>
+            <div style={{
+              color: '#6c757d',
+              fontWeight: '600',
+              fontSize: '0.9rem'
+            }}>
+              Categories
+            </div>
+          </div>
+          
+          <div style={{
+            background: '#fff',
+            padding: '25px',
+            borderRadius: '15px',
+            textAlign: 'center',
+            boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
+            border: '1px solid rgba(233, 236, 239, 0.5)'
+          }}>
+            <div style={{
+              fontSize: '2.5rem',
+              fontWeight: '800',
+              color: '#212529',
+              marginBottom: '5px'
+            }}>
+              24/7
+            </div>
+            <div style={{
+              color: '#6c757d',
+              fontWeight: '600',
+              fontSize: '0.9rem'
+            }}>
+              Available
+            </div>
+          </div>
+          
+          <div style={{
+            background: '#fff',
+            padding: '25px',
+            borderRadius: '15px',
+            textAlign: 'center',
+            boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
+            border: '1px solid rgba(233, 236, 239, 0.5)'
+          }}>
+            <div style={{
+              fontSize: '2.5rem',
+              fontWeight: '800',
+              color: '#28a745',
+              marginBottom: '5px'
+            }}>
+              Free
+            </div>
+            <div style={{
+              color: '#6c757d',
+              fontWeight: '600',
+              fontSize: '0.9rem'
+            }}>
+              to Browse
+            </div>
+          </div>
         </div>
       </div>
 
       <style jsx>{`
-        .ai-job-portal {
-          padding: 20px;
-          max-width: 1200px;
-          margin: 0 auto;
-          background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-          color: #fff;
-          border-radius: 15px;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .portal-header {
-          text-align: center;
-          margin-bottom: 30px;
-        }
-
-        .portal-header h2 {
-          color: #D4AF37;
-          font-size: 2.2rem;
-          margin-bottom: 10px;
-          text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .portal-subtitle {
-          color: #ccc;
-          font-size: 1.1rem;
-          margin-bottom: 20px;
-        }
-
-        .search-input {
-          width: 100%;
-          max-width: 400px;
-          padding: 12px 20px;
-          border: 2px solid #D4AF37;
-          border-radius: 25px;
-          background: rgba(255,255,255,0.1);
-          color: #fff;
-          font-size: 1rem;
-          backdrop-filter: blur(10px);
-        }
-
-        .search-input::placeholder {
-          color: #aaa;
-        }
-
-        .category-nav {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          justify-content: center;
-          margin-bottom: 30px;
-        }
-
-        .category-btn {
-          padding: 12px 20px;
-          border: none;
-          background: rgba(255,255,255,0.1);
-          color: #fff;
-          border-radius: 25px;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          backdrop-filter: blur(10px);
-          font-size: 0.9rem;
-        }
-
-        .category-btn:hover {
-          background: rgba(212, 175, 55, 0.2);
-          transform: translateY(-2px);
-        }
-
-        .category-btn.active {
-          background: linear-gradient(135deg, #D4AF37, #F4D03F);
-          color: #000;
-          font-weight: bold;
-        }
-
-        .company-count {
-          font-size: 0.8rem;
-          opacity: 0.7;
-          margin-left: 5px;
-        }
-
-        .category-header {
-          text-align: center;
-          margin-bottom: 25px;
-        }
-
-        .category-header h3 {
-          color: #D4AF37;
-          font-size: 1.5rem;
-          margin-bottom: 8px;
-        }
-
-        .companies-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-          gap: 20px;
-          margin-bottom: 30px;
-        }
-
-        .company-card {
-          background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-          border: 1px solid rgba(212, 175, 55, 0.3);
-          border-radius: 15px;
-          padding: 20px;
-          transition: all 0.3s ease;
-          backdrop-filter: blur(10px);
-        }
-
-        .company-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
-          border-color: #D4AF37;
-        }
-
-        .company-header {
-          display: flex;
-          align-items: center;
-          margin-bottom: 15px;
-        }
-
-        .company-logo {
-          font-size: 2rem;
-          margin-right: 15px;
-          width: 50px;
-          height: 50px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(212, 175, 55, 0.1);
-          border-radius: 50%;
-        }
-
-        .company-info h4 {
-          margin: 0;
-          color: #D4AF37;
-          font-size: 1.2rem;
-        }
-
-        .tier-badge {
-          display: inline-block;
-          padding: 4px 8px;
-          border-radius: 12px;
-          font-size: 0.7rem;
-          font-weight: bold;
-          color: #000;
-          margin-top: 4px;
-        }
-
-        .company-description {
-          margin-bottom: 15px;
-          line-height: 1.5;
-          color: #ccc;
-        }
-
-        .features-list {
-          margin-bottom: 15px;
-        }
-
-        .feature-tag {
-          display: inline-block;
-          background: rgba(212, 175, 55, 0.1);
-          color: #D4AF37;
-          padding: 4px 8px;
-          border-radius: 12px;
-          font-size: 0.8rem;
-          margin: 2px;
-          border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-
-        .company-footer {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .pricing {
-          color: #4ECDC4;
-          font-weight: bold;
-        }
-
-        .visit-btn {
-          background: linear-gradient(135deg, #D4AF37, #F4D03F);
-          color: #000;
-          padding: 8px 16px;
-          border-radius: 20px;
-          text-decoration: none;
-          font-weight: bold;
-          transition: all 0.3s ease;
-          border: none;
-          cursor: pointer;
-        }
-
-        .visit-btn:hover {
-          transform: scale(1.05);
-          box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-        }
-
-        .portal-stats {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-          gap: 20px;
-          background: rgba(255,255,255,0.05);
-          padding: 20px;
-          border-radius: 15px;
-          backdrop-filter: blur(10px);
-        }
-
-        .stat-item {
-          text-align: center;
-        }
-
-        .stat-number {
-          display: block;
-          font-size: 1.8rem;
-          font-weight: bold;
-          color: #D4AF37;
-        }
-
-        .stat-label {
-          font-size: 0.9rem;
-          color: #ccc;
-        }
-
-        .loading-spinner {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 200px;
-        }
-
-        .spinner {
-          width: 40px;
-          height: 40px;
-          border: 4px solid rgba(212, 175, 55, 0.1);
-          border-left: 4px solid #D4AF37;
-          border-radius: 50%;
-          animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
+        @keyframes subtleRotate {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
