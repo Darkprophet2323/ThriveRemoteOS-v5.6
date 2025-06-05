@@ -597,25 +597,30 @@ body {
 .menu-item {
   display: flex;
   align-items: center;
-  padding: 7px;          /* Reduced from 9px */
-  border-radius: 5px;    /* Reduced from 6px */
+  padding: 7px;
+  border-radius: 5px;
   cursor: pointer;
   transition: all var(--transition-fast);
-  font-size: 0.7rem;     /* Reduced from 0.8rem */
-  color: var(--silver-accent);
-  margin-bottom: 2px;    /* Reduced from 3px */
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
   font-weight: 500;
 }
 
 .menu-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--white-pure);
-  transform: translateX(2px);  /* Reduced from 3px */
+  background: var(--grey-200);
+  color: var(--text-primary);
+  transform: translateX(2px);
 }
 
 .menu-icon {
-  margin-right: 7px;     /* Reduced from 9px */
-  font-size: 0.8rem;     /* Reduced from 0.9rem */
+  margin-right: 7px;
+  font-size: 0.8rem;
+  filter: grayscale(100%);
+}
+
+.menu-item:hover .menu-icon {
+  filter: grayscale(0%);
 }
 
 .start-menu-overlay {
