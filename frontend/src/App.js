@@ -963,39 +963,28 @@ function DesktopEnvironment() {
   const [rightClickMenu, setRightClickMenu] = useState({ show: false, x: 0, y: 0 });
   const [bootComplete, setBootComplete] = useState(false);
 
-  const handleLoadingComplete = () => {
-    // Apply saved theme settings
-    const savedSettings = localStorage.getItem('thriveRemoteSettings');
-    if (savedSettings) {
-      const settings = JSON.parse(savedSettings);
-      // Apply theme immediately
-      const root = document.documentElement;
-      
-      // Apply saved theme
-      if (settings.theme) {
-        setTimeout(() => {
-          window.dispatchEvent(new CustomEvent('applyTheme', { 
-            detail: { theme: settings.theme, settings } 
-          }));
-        }, 100);
-      }
-      
-      // Apply other settings
-      if (settings.fontSize) {
-        document.body.classList.add(`font-${settings.fontSize}`);
-      }
-      
-      if (settings.darkMode) {
-        document.body.classList.add('dark-mode');
-      }
-      
-      if (settings.highContrast) {
-        document.body.classList.add('high-contrast');
-      }
-    }
-    
-    setBootComplete(true);
+  // Right-click context menu handler
+  const handleRightClick = (e) => {
+    e.preventDefault();
+    setRightClickMenu({
+      show: true,
+      x: e.clientX,
+      y: e.clientY
+    });
+    setShowStartMenu(false);
   };
+
+  // Close context menu when clicking elsewhere
+  const handleClick = (e) => {
+    if (rightClickMenu.show) {
+      setRightClickMenu({ show: false, x: 0, y: 0 });
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, [rightClickMenu.show]);
 
   if (!bootComplete) {
     return <SophisticatedBootLoader onComplete={handleLoadingComplete} />;
