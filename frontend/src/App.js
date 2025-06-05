@@ -20,6 +20,7 @@ import RealTimeLoader from "./components/RealTimeLoader";
 import ProfessionalRealTimeLoader from "./components/ProfessionalRealTimeLoader";
 import LiveDataService from "./components/LiveDataIntegration";
 import SleekDesktopIcons from "./components/SleekDesktopIcons";
+import { SoundProvider, useSounds } from "./components/SoundManager";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
