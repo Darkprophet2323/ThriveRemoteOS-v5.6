@@ -283,8 +283,8 @@ const ThriveRemoteDesktop = () => {
           {showStartMenu && (
             <div className="start-menu">
               <div className="start-menu-header">
-                <div className="start-menu-title">ThriveRemoteOS V5.2</div>
-                <div className="start-menu-subtitle">Luxury AI Platform</div>
+                <div className="start-menu-title">ThriveRemoteOS V5.5</div>
+                <div className="start-menu-subtitle">AI Job Entertainment Platform</div>
               </div>
               
               <div className="start-menu-section">
