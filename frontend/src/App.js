@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import "./animations.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import WaitressJobPortal from "./components/WaitressJobPortal";
@@ -21,6 +22,9 @@ import SimpleBootLoader from "./components/SimpleBootLoader";
 import LiveDataService from "./components/LiveDataIntegration";
 import SleekDesktopIcons from "./components/SleekDesktopIcons";
 import AIJobLinksPortal from "./components/AIJobLinksPortal";
+import CalculatorApp from "./components/CalculatorApp";
+import MediaPlayerApp from "./components/MediaPlayerApp";
+import SystemStatusApp from "./components/SystemStatusApp";
 import { SoundProvider, useSounds } from "./components/SoundManager";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
