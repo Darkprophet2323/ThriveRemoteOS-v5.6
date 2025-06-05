@@ -960,6 +960,7 @@ const SystemSettings = () => (
 
 // Desktop Environment Component
 function DesktopEnvironment() {
+  const [rightClickMenu, setRightClickMenu] = useState({ show: false, x: 0, y: 0 });
   const [bootComplete, setBootComplete] = useState(false);
 
   const handleLoadingComplete = () => {
