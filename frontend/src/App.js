@@ -288,48 +288,36 @@ const ThriveRemoteDesktop = () => {
               </div>
               
               <div className="start-menu-section">
-                <div className="section-title">🎭 AI Platform</div>
+                <div className="section-title">🤖 AI Job Entertainment</div>
                 <div className="menu-item" onClick={() => { 
-                  handleIconClick('AI Career Portal', 'smart_toy', <WaitressJobPortal />, 450, 325); 
+                  handleIconClick('AI Job Links Portal', '🤖', 'AIJobLinksPortal', 800, 600); 
                   setShowStartMenu(false); 
                 }}>
-                  <span className="menu-icon">🎭</span>AI Career Portal (Full)
+                  <span className="menu-icon">🤖</span>AI Job Links Portal (NEW!)
                 </div>
                 <div className="menu-item" onClick={() => { 
-                  handleIconClick('AI Tools Dashboard', 'smart_toy', <AIToolsDashboard />); 
+                  handleIconClick('AI Career Portal', 'smart_toy', 'WaitressJobPortal', 450, 325); 
                   setShowStartMenu(false); 
                 }}>
-                  <span className="menu-icon">🤖</span>120+ AI Job Tools
+                  <span className="menu-icon">🎭</span>AI Career Portal
                 </div>
                 <div className="menu-item" onClick={() => { 
-                  handleIconClick('Live Jobs Portal', 'work', <LiveJobsPortal />); 
+                  handleIconClick('AI Tools Dashboard', 'smart_toy', 'AIToolsDashboard'); 
+                  setShowStartMenu(false); 
+                }}>
+                  <span className="menu-icon">🔧</span>120+ AI Job Tools
+                </div>
+                <div className="menu-item" onClick={() => { 
+                  handleIconClick('Live Jobs Portal', 'work', 'LiveJobsPortal'); 
                   setShowStartMenu(false); 
                 }}>
                   <span className="menu-icon">💼</span>Live Job Listings
                 </div>
                 <div className="menu-item" onClick={() => { 
-                  handleIconClick('Dashboard', 'dashboard', <UserDashboard />); 
+                  handleIconClick('Dashboard', 'dashboard', 'UserDashboard'); 
                   setShowStartMenu(false); 
                 }}>
                   <span className="menu-icon">📊</span>User Dashboard
-                </div>
-                <div className="menu-item" onClick={() => { 
-                  handleIconClick('Weather Station', 'wb_sunny', <ProfessionalWeatherWidget />, 500, 450); 
-                  setShowStartMenu(false); 
-                }}>
-                  <span className="menu-icon">🌤️</span>Weather Station
-                </div>
-                <div className="menu-item" onClick={() => { 
-                  handleIconClick('RelocateMe Global', 'flight_takeoff', <RelocateMeIntegration />, 500, 400); 
-                  setShowStartMenu(false); 
-                }}>
-                  <span className="menu-icon">🌍</span>RelocateMe Opportunities
-                </div>
-                <div className="menu-item" onClick={() => { 
-                  handleIconClick('Download Manager', 'cloud_download', <ProfessionalDownloadManager />, 600, 500); 
-                  setShowStartMenu(false); 
-                }}>
-                  <span className="menu-icon">📥</span>Download Manager
                 </div>
               </div>
               
