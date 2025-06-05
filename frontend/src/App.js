@@ -962,6 +962,7 @@ const SystemSettings = () => (
 function DesktopEnvironment() {
   const [rightClickMenu, setRightClickMenu] = useState({ show: false, x: 0, y: 0 });
   const [bootComplete, setBootComplete] = useState(false);
+  const [showStartMenu, setShowStartMenu] = useState(false);
 
   // Right-click context menu handler
   const handleRightClick = (e) => {
