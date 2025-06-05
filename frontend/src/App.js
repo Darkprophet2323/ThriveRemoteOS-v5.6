@@ -25,6 +25,7 @@ import AIJobLinksPortal from "./components/AIJobLinksPortal";
 import CalculatorApp from "./components/CalculatorApp";
 import MediaPlayerApp from "./components/MediaPlayerApp";
 import SystemStatusApp from "./components/SystemStatusApp";
+import CompactCMS from "./components/CompactCMS";
 import { SoundProvider, useSounds } from "./components/SoundManager";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
