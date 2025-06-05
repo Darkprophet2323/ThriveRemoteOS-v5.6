@@ -997,7 +997,7 @@ function DesktopEnvironment() {
   };
 
   if (!bootComplete) {
-    return <SimpleBootLoader onComplete={handleLoadingComplete} />;
+    return <SophisticatedBootLoader onComplete={handleLoadingComplete} />;
   }
 
   return <ThriveRemoteDesktop />;
