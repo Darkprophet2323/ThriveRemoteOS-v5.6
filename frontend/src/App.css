@@ -1,42 +1,48 @@
-/* ===== SLEEK BLACK PROFESSIONAL DESIGN SYSTEM ===== */
-
-/* Authority-Based Color Psychology Palette */
+/* ===== GREYSCALE DESIGN VARIABLES ===== */
 :root {
-  /* Sleek Black Theme */
-  --sleek-black: #0f0f0f;
-  --matte-black: #1a1a1a;
-  --charcoal-black: #2a2a2a;
-  --smoke-gray: #3a3a3a;
-  --silver-accent: #c0c0c0;
-  --white-pure: #ffffff;
-  --glass-white: rgba(255, 255, 255, 0.95);
+  /* Greyscale Palette */
+  --grey-50: #f8f9fa;
+  --grey-100: #f1f3f4;
+  --grey-200: #e9ecef;
+  --grey-300: #dee2e6;
+  --grey-400: #ced4da;
+  --grey-500: #adb5bd;
+  --grey-600: #6c757d;
+  --grey-700: #495057;
+  --grey-800: #343a40;
+  --grey-900: #212529;
   
-  /* Professional Accents */
-  --accent-blue: #007acc;
-  --accent-green: #28a745;
-  --accent-orange: #fd7e14;
-  --accent-red: #dc3545;
+  /* Design System */
+  --primary-bg: var(--grey-50);
+  --secondary-bg: var(--grey-100);
+  --border-color: var(--grey-300);
+  --text-primary: var(--grey-800);
+  --text-secondary: var(--grey-600);
+  --accent-color: var(--grey-700);
   
-  /* Glass Morphism Enhanced */
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  --backdrop-blur: blur(20px);
+  /* Triangular Accents */
+  --triangle-light: var(--grey-300);
+  --triangle-medium: var(--grey-400);
+  --triangle-dark: var(--grey-500);
+  
+  /* Legacy Variables (Updated) */
+  --white-pure: var(--grey-50);
+  --silver-accent: var(--grey-600);
+  --accent-blue: var(--grey-700);
+  --backdrop-blur: blur(12px);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
   
   /* Professional Shadows */
   --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.15);
   --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.25);
   --shadow-icon: 0 2px 4px rgba(0, 0, 0, 0.3);
-  
-  /* Typography */
-  --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
-  --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
-  
-  /* Transitions */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ===== BASE STYLES ===== */
