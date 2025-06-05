@@ -380,7 +380,7 @@ const ThriveRemoteDesktop = () => {
   );
 };
 
-// Window Component with enhanced functionality
+// Window Component with enhanced functionality and animations
 const Window = ({ window, onClose, onMinimize, onMaximize, onBringToFront, onMove, onResize }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [isResizing, setIsResizing] = useState(false);
@@ -473,7 +473,7 @@ const Window = ({ window, onClose, onMinimize, onMaximize, onBringToFront, onMov
 
   return (
     <div
-      className={`window ${window.isMaximized ? 'maximized' : ''}`}
+      className={`window glassmorphism ${window.isMaximized ? 'maximized' : ''} windowOpenAnimation`}
       style={{
         left: window.position.x,
         top: window.position.y,
@@ -494,19 +494,28 @@ const Window = ({ window, onClose, onMinimize, onMaximize, onBringToFront, onMov
           {window.title}
         </div>
         <div className="window-controls">
-          <button className="window-control minimize" onClick={(e) => { e.stopPropagation(); onMinimize(); }}>
+          <button 
+            className="window-control minimize hoverBounce" 
+            onClick={(e) => { e.stopPropagation(); onMinimize(); }}
+          >
             −
           </button>
-          <button className="window-control maximize" onClick={(e) => { e.stopPropagation(); onMaximize(); }}>
+          <button 
+            className="window-control maximize hoverBounce" 
+            onClick={(e) => { e.stopPropagation(); onMaximize(); }}
+          >
             {window.isMaximized ? '❐' : '□'}
           </button>
-          <button className="window-control close" onClick={(e) => { e.stopPropagation(); onClose(); }}>
+          <button 
+            className="window-control close hoverBounce" 
+            onClick={(e) => { e.stopPropagation(); onClose(); }}
+          >
             ×
           </button>
         </div>
       </div>
       <div className="window-content">
-        <div className="window-content-inner">
+        <div className="window-content-inner fadeInUp">
           {window.content}
         </div>
       </div>
