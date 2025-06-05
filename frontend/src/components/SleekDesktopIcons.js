@@ -22,8 +22,8 @@ const SleekDesktopIcons = ({ onIconClick, sounds }) => {
       id: 'music-entertainment',
       icon: '🎵',
       label: 'Music Player',
-      component: 'MusicEntertainment',
-      size: { width: 450, height: 350 },
+      component: 'MediaPlayerApp',
+      size: { width: 450, height: 450 },
       gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
     },
     {
@@ -94,23 +94,23 @@ const SleekDesktopIcons = ({ onIconClick, sounds }) => {
       id: 'calculator',
       icon: '🧮',
       label: 'Calculator',
-      component: 'Calculator',
-      size: { width: 300, height: 400 },
+      component: 'CalculatorApp',
+      size: { width: 320, height: 500 },
       gradient: 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)'
     },
     {
       id: 'media-player',
       icon: '▶️',
       label: 'Media Player',
-      component: 'MediaPlayer',
-      size: { width: 500, height: 400 },
+      component: 'MediaPlayerApp',
+      size: { width: 400, height: 500 },
       gradient: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)'
     },
     {
       id: 'system-status',
       icon: '📊',
       label: 'System Status',
-      component: 'SystemStatus',
+      component: 'SystemStatusApp',
       size: { width: 600, height: 450 },
       gradient: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
     }
@@ -118,10 +118,14 @@ const SleekDesktopIcons = ({ onIconClick, sounds }) => {
 
   return (
     <div className="desktop-icons-container">
-      {icons.map((iconData) => (
+      {icons.map((iconData, index) => (
         <div
           key={iconData.id}
-          className="desktop-icon modern-icon"
+          className="desktop-icon modern-icon bounceIn iconHover hoverFloat hoverGlow"
+          style={{
+            background: iconData.gradient,
+            animationDelay: `${index * 0.1}s`
+          }}
           onClick={() => {
             if (sounds?.playClick) sounds.playClick();
             onIconClick(
@@ -134,9 +138,6 @@ const SleekDesktopIcons = ({ onIconClick, sounds }) => {
           }}
           onMouseEnter={() => {
             if (sounds?.playHover) sounds.playHover();
-          }}
-          style={{
-            background: iconData.gradient,
           }}
         >
           <div className="icon-wrapper">
@@ -195,6 +196,10 @@ const SleekDesktopIcons = ({ onIconClick, sounds }) => {
           border-color: rgba(255, 255, 255, 0.3);
         }
 
+        .desktop-icon:active {
+          transform: translateY(-5px) scale(1.02);
+        }
+
         .icon-wrapper {
           position: relative;
           width: 60px;
@@ -206,12 +211,24 @@ const SleekDesktopIcons = ({ onIconClick, sounds }) => {
           border-radius: 50%;
           backdrop-filter: blur(10px);
           border: 1px solid rgba(255, 255, 255, 0.2);
+          transition: all 0.3s ease;
+        }
+
+        .desktop-icon:hover .icon-wrapper {
+          background: rgba(255, 255, 255, 0.3);
+          transform: scale(1.1);
         }
 
         .icon-symbol {
           font-size: 2rem;
           filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
           z-index: 2;
+          transition: all 0.3s ease;
+        }
+
+        .desktop-icon:hover .icon-symbol {
+          transform: scale(1.1);
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         }
 
         .floating-particles {
@@ -259,6 +276,12 @@ const SleekDesktopIcons = ({ onIconClick, sounds }) => {
           text-transform: lowercase;
           letter-spacing: 0.5px;
           margin-top: 8px;
+          transition: all 0.3s ease;
+        }
+
+        .desktop-icon:hover .icon-label {
+          color: rgba(255, 255, 255, 1);
+          transform: translateY(-2px);
         }
 
         @keyframes float {
@@ -272,7 +295,7 @@ const SleekDesktopIcons = ({ onIconClick, sounds }) => {
           }
         }
 
-        /* Gradient animations for enhanced visual appeal */
+        /* Enhanced gradient animations */
         .desktop-icon::before {
           content: '';
           position: absolute;
@@ -289,6 +312,31 @@ const SleekDesktopIcons = ({ onIconClick, sounds }) => {
 
         .desktop-icon:hover::before {
           opacity: 0.7;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+          .desktop-icons-container {
+            grid-template-columns: repeat(auto-fit, 100px);
+            grid-template-rows: repeat(auto-fit, 120px);
+            gap: 15px;
+            padding: 20px;
+          }
+          
+          .desktop-icon {
+            width: 80px;
+            height: 100px;
+            padding: 10px;
+          }
+          
+          .icon-wrapper {
+            width: 50px;
+            height: 50px;
+          }
+          
+          .icon-symbol {
+            font-size: 1.5rem;
+          }
         }
       `}</style>
     </div>
