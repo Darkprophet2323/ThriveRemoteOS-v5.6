@@ -56,6 +56,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ====== CONTEXT MENU STYLES ====== */
+.context-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: var(--silver-accent);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.context-menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white-pure);
+  transform: translateX(2px);
+}
+
 /* ===== DESKTOP ENVIRONMENT ===== */
 .desktop-environment {
   height: 100vh;
