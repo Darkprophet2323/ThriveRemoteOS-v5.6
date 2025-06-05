@@ -18,7 +18,7 @@ import ProfessionalSettings from "./components/ProfessionalSettings";
 import QuantumTerminal from "./components/QuantumTerminal";
 import RelocateMeIntegration from "./components/RelocateMeIntegration";
 import RealTimeLoader from "./components/RealTimeLoader";
-import SophisticatedBootLoader from "./components/SimpleBootLoader";
+import CompactSleekLoader from "./components/SimpleBootLoader";
 import LiveDataService from "./components/LiveDataIntegration";
 import SleekDesktopIcons from "./components/SleekDesktopIcons";
 import AIJobLinksPortal from "./components/AIJobLinksPortal";
