@@ -210,7 +210,7 @@ const ThriveRemoteDesktop = () => {
   }
 
   return (
-    <div className="desktop-environment">
+    <div className="desktop-environment" onContextMenu={handleRightClick}>
       {/* Professional News Ticker */}
       <LuxuryNewsTicker />
 
