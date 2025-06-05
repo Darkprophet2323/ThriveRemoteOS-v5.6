@@ -276,8 +276,8 @@ const ThriveRemoteDesktop = () => {
               setShowStartMenu(!showStartMenu);
             }}
           >
-            <span className="start-icon">🎭</span>
-            <span className="start-text">ThriveOS</span>
+            <span className="start-icon">🤖</span>
+            <span className="start-text">ThriveOS v5.5</span>
           </button>
           
           {showStartMenu && (
