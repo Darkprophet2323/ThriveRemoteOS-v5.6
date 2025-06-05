@@ -479,50 +479,58 @@ body {
   opacity: 1;
 }
 
-/* ===== SLEEK TASKBAR ===== */
+/* ===== TASKBAR ===== */
 .taskbar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 50px;
-  background: rgba(15, 15, 15, 0.95);
+  height: 60px;
+  background: rgba(248, 249, 250, 0.95);
   backdrop-filter: var(--backdrop-blur);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-color);
   display: flex;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 20px;
   z-index: 1000;
-}
-
-.start-menu-container {
-  position: relative;
+  box-shadow: var(--glass-shadow);
 }
 
 .start-button {
-  background: var(--accent-blue);
-  border: none;
+  background: linear-gradient(135deg, var(--grey-200), var(--grey-300));
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
   padding: 8px 16px;
   border-radius: 8px;
-  color: var(--white-pure);
-  font-weight: 600;
   cursor: pointer;
+  transition: all var(--transition-fast);
+  font-weight: 600;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: all var(--transition-normal);
-  font-size: 0.875rem;
-  letter-spacing: 0.3px;
+  position: relative;
 }
 
 .start-button:hover {
-  background: #0056b3;
+  background: linear-gradient(135deg, var(--grey-300), var(--grey-400));
   transform: translateY(-1px);
-  box-shadow: var(--shadow-medium);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.start-button.active {
+  background: linear-gradient(135deg, var(--grey-400), var(--grey-500));
+  color: var(--white-pure);
 }
 
 .start-icon {
-  font-size: 1rem;
+  font-size: 1.1rem;
+}
+
+.start-text {
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
 }
 
 .start-menu {
