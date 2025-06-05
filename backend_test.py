@@ -243,6 +243,32 @@ class ThriveRemoteOSAPITester(unittest.TestCase):
         self.assertGreater(len(categories), 0)
         
         print(f"AI Tools - Total: {data.get('total_tools')}, Categories: {data.get('total_categories')}")
+        
+    def test_jobs_live(self):
+        """Test the live jobs API endpoint"""
+        response = requests.get(f"{self.base_url}/jobs/live")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        
+        # Check for required fields
+        self.assertIn("jobs", data)
+        self.assertIn("total", data)
+        self.assertIn("source", data)
+        
+        jobs = data.get("jobs", [])
+        self.assertGreater(len(jobs), 0)
+        
+        # Check first job structure
+        first_job = jobs[0]
+        self.assertIn("id", first_job)
+        self.assertIn("title", first_job)
+        self.assertIn("company", first_job)
+        self.assertIn("location", first_job)
+        self.assertIn("salary", first_job)
+        self.assertIn("skills", first_job)
+        
+        print(f"Live Jobs - Total: {data.get('total')}, Source: {data.get('source')}")
+        print(f"First job: {first_job.get('title')} at {first_job.get('company')}")
 
 def run_tests():
     # Create a test suite
