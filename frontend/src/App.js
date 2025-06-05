@@ -263,7 +263,7 @@ const ThriveRemoteDesktop = () => {
           </button>
           
           {showStartMenu && (
-            <div className="start-menu">
+            <div className="start-menu startMenuOpen">
               <div className="start-menu-header">
                 <div className="start-menu-title">ThriveRemoteOS V5.5</div>
                 <div className="start-menu-subtitle">AI Job Entertainment Platform</div>
@@ -271,31 +271,31 @@ const ThriveRemoteDesktop = () => {
               
               <div className="start-menu-section">
                 <div className="section-title">🤖 AI Job Entertainment</div>
-                <div className="menu-item" onClick={() => { 
+                <div className="menu-item fadeInUp" onClick={() => { 
                   handleIconClick('AI Job Links Portal', '🤖', 'AIJobLinksPortal', 800, 600); 
                   setShowStartMenu(false); 
                 }}>
                   <span className="menu-icon">🤖</span>AI Job Links Portal (NEW!)
                 </div>
-                <div className="menu-item" onClick={() => { 
+                <div className="menu-item fadeInUp animate-delay-100" onClick={() => { 
                   handleIconClick('AI Career Portal', 'smart_toy', 'WaitressJobPortal', 450, 325); 
                   setShowStartMenu(false); 
                 }}>
                   <span className="menu-icon">🎭</span>AI Career Portal
                 </div>
-                <div className="menu-item" onClick={() => { 
+                <div className="menu-item fadeInUp animate-delay-200" onClick={() => { 
                   handleIconClick('AI Tools Dashboard', 'smart_toy', 'AIToolsDashboard'); 
                   setShowStartMenu(false); 
                 }}>
                   <span className="menu-icon">🔧</span>120+ AI Job Tools
                 </div>
-                <div className="menu-item" onClick={() => { 
+                <div className="menu-item fadeInUp animate-delay-300" onClick={() => { 
                   handleIconClick('Live Jobs Portal', 'work', 'LiveJobsPortal'); 
                   setShowStartMenu(false); 
                 }}>
                   <span className="menu-icon">💼</span>Live Job Listings
                 </div>
-                <div className="menu-item" onClick={() => { 
+                <div className="menu-item fadeInUp animate-delay-400" onClick={() => { 
                   handleIconClick('Dashboard', 'dashboard', 'UserDashboard'); 
                   setShowStartMenu(false); 
                 }}>
