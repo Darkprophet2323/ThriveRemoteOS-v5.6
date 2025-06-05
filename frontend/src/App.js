@@ -226,6 +226,52 @@ const ThriveRemoteDesktop = () => {
         sounds={sounds} 
       />
 
+      {/* Right-Click Context Menu */}
+      {rightClickMenu.show && (
+        <div 
+          className="context-menu startMenuOpen"
+          style={{
+            position: 'fixed',
+            left: rightClickMenu.x,
+            top: rightClickMenu.y,
+            background: 'rgba(26, 26, 26, 0.95)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '8px',
+            padding: '8px',
+            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)',
+            zIndex: 10000,
+            minWidth: '160px'
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="context-menu-item fadeInUp" onClick={() => { 
+            handleIconClick('AI Job Links Portal', '🤖', 'AIJobLinksPortal', 800, 600); 
+            setRightClickMenu({ show: false, x: 0, y: 0 }); 
+          }}>
+            <span style={{ marginRight: '8px' }}>🤖</span>AI Job Links Portal
+          </div>
+          <div className="context-menu-item fadeInUp animate-delay-100" onClick={() => { 
+            handleIconClick('System Status', '📊', 'SystemStatusApp', 600, 450); 
+            setRightClickMenu({ show: false, x: 0, y: 0 }); 
+          }}>
+            <span style={{ marginRight: '8px' }}>📊</span>System Status
+          </div>
+          <div className="context-menu-item fadeInUp animate-delay-200" onClick={() => { 
+            handleIconClick('Calculator', '🧮', 'CalculatorApp', 320, 500); 
+            setRightClickMenu({ show: false, x: 0, y: 0 }); 
+          }}>
+            <span style={{ marginRight: '8px' }}>🧮</span>Calculator
+          </div>
+          <hr style={{ margin: '4px 0', border: 'none', borderTop: '1px solid rgba(255,255,255,0.1)' }} />
+          <div className="context-menu-item fadeInUp animate-delay-300" onClick={() => { 
+            setRightClickMenu({ show: false, x: 0, y: 0 }); 
+          }}>
+            <span style={{ marginRight: '8px' }}>🔄</span>Refresh Desktop
+          </div>
+        </div>
+      )}
+
       {/* Windows */}
       {windows.map(window => (
         <Window
