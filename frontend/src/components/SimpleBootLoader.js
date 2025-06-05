@@ -4,14 +4,13 @@ import axios from 'axios';
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
-const SophisticatedBootLoader = ({ onComplete }) => {
+const CompactSleekLoader = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [status, setStatus] = useState('Initializing ThriveRemoteOS v5.5...');
   const [liveData, setLiveData] = useState({
     systemMetrics: { cpu: 0, memory: 0, network: 'Connecting' },
     aiTools: 0,
-    jobs: 0,
-    weather: 'Loading...'
+    jobs: 0
   });
 
   useEffect(() => {
@@ -31,8 +30,7 @@ const SophisticatedBootLoader = ({ onComplete }) => {
             network: 'Connected'
           },
           aiTools: aiToolsResponse.data.total_tools || 120,
-          jobs: jobsResponse.data.total || 250,
-          weather: '22°C Clear'
+          jobs: jobsResponse.data.total || 250
         });
       } catch (error) {
         console.log('Using fallback data for loading screen');
@@ -42,12 +40,10 @@ const SophisticatedBootLoader = ({ onComplete }) => {
     fetchLiveData();
 
     const bootSequence = [
-      { progress: 15, status: 'Connecting to AI job entertainment services...', delay: 600 },
-      { progress: 35, status: 'Loading 120+ AI tools database...', delay: 700 },
-      { progress: 55, status: 'Initializing desktop environment...', delay: 500 },
-      { progress: 75, status: 'Preparing AI job links portal...', delay: 600 },
-      { progress: 90, status: 'Finalizing entertainment platform...', delay: 400 },
-      { progress: 100, status: 'ThriveRemoteOS v5.5 Ready!', delay: 500 }
+      { progress: 20, status: 'Loading AI job entertainment services...', delay: 500 },
+      { progress: 50, status: 'Initializing sleek interface...', delay: 400 },
+      { progress: 80, status: 'Preparing compact workspace...', delay: 300 },
+      { progress: 100, status: 'ThriveRemoteOS v5.5 Ready', delay: 200 }
     ];
 
     const runBootSequence = async () => {
@@ -59,7 +55,7 @@ const SophisticatedBootLoader = ({ onComplete }) => {
       
       setTimeout(() => {
         if (onComplete) onComplete();
-      }, 800);
+      }, 400);
     };
 
     runBootSequence();
@@ -72,242 +68,156 @@ const SophisticatedBootLoader = ({ onComplete }) => {
       left: 0,
       right: 0,
       bottom: 0,
-      background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%)',
+      background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f1f3f4 100%)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif',
-      zIndex: 10000,
-      overflow: 'hidden'
+      zIndex: 10000
     }}>
       
-      {/* Subtle Background Pattern */}
+      {/* Triangular Accents */}
       <div style={{
         position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundImage: `
-          radial-gradient(circle at 25% 25%, rgba(108, 117, 125, 0.03) 0%, transparent 50%),
-          radial-gradient(circle at 75% 75%, rgba(73, 80, 87, 0.03) 0%, transparent 50%)
-        `,
-        animation: 'subtleMove 20s ease-in-out infinite'
+        top: '10%',
+        left: '10%',
+        width: 0,
+        height: 0,
+        borderLeft: '20px solid transparent',
+        borderRight: '20px solid transparent',
+        borderBottom: '35px solid #dee2e6',
+        opacity: 0.3,
+        animation: 'floatTriangle 6s ease-in-out infinite'
+      }} />
+      <div style={{
+        position: 'absolute',
+        bottom: '15%',
+        right: '15%',
+        width: 0,
+        height: 0,
+        borderLeft: '15px solid transparent',
+        borderRight: '15px solid transparent',
+        borderTop: '25px solid #ced4da',
+        opacity: 0.4,
+        animation: 'floatTriangle 8s ease-in-out infinite reverse'
       }} />
 
-      {/* Main Content Container */}
+      {/* Compact Main Container */}
       <div style={{
-        background: 'rgba(255, 255, 255, 0.95)',
-        borderRadius: '20px',
-        padding: '50px 60px',
-        boxShadow: '0 20px 60px rgba(108, 117, 125, 0.15), 0 8px 25px rgba(108, 117, 125, 0.1)',
-        border: '1px solid rgba(233, 236, 239, 0.8)',
-        backdropFilter: 'blur(20px)',
         textAlign: 'center',
-        maxWidth: '500px',
-        width: '90%',
-        position: 'relative',
-        overflow: 'hidden'
+        maxWidth: '320px',
+        width: '90%'
       }}>
         
-        {/* Sophisticated Logo */}
+        {/* Sleek Logo */}
         <div style={{
-          fontSize: '3rem',
-          marginBottom: '20px',
-          color: '#495057',
-          filter: 'drop-shadow(0 2px 8px rgba(108, 117, 125, 0.2))',
-          animation: 'sophisticatedPulse 3s ease-in-out infinite'
+          fontSize: '2.5rem',
+          marginBottom: '15px',
+          color: '#6c757d',
+          animation: 'gentlePulse 3s ease-in-out infinite'
         }}>
           🤖
         </div>
 
-        {/* Title */}
+        {/* Compact Title */}
         <h1 style={{
-          fontSize: '2rem',
-          fontWeight: '700',
-          color: '#212529',
-          marginBottom: '8px',
-          letterSpacing: '-0.025em'
+          fontSize: '1.6rem',
+          fontWeight: '300',
+          color: '#495057',
+          marginBottom: '5px',
+          letterSpacing: '1px'
         }}>
-          ThriveRemoteOS V5.5
+          ThriveRemoteOS
         </h1>
 
-        {/* Subtitle */}
         <p style={{
-          fontSize: '1rem',
+          fontSize: '0.8rem',
           color: '#6c757d',
-          marginBottom: '40px',
-          fontWeight: '500'
+          marginBottom: '25px',
+          fontWeight: '400',
+          textTransform: 'uppercase',
+          letterSpacing: '0.5px'
         }}>
-          AI Job Entertainment Platform
+          AI Job Platform v5.5
         </p>
 
-        {/* Sophisticated Progress Bar */}
+        {/* Compact Progress Bar */}
         <div style={{
-          marginBottom: '30px'
+          marginBottom: '20px'
         }}>
           <div style={{
             width: '100%',
-            height: '6px',
+            height: '2px',
             background: '#e9ecef',
-            borderRadius: '3px',
+            borderRadius: '1px',
             overflow: 'hidden',
-            marginBottom: '8px',
-            position: 'relative'
+            marginBottom: '8px'
           }}>
             <div style={{
               width: `${progress}%`,
               height: '100%',
               background: 'linear-gradient(90deg, #6c757d, #495057)',
-              borderRadius: '3px',
-              transition: 'width 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}>
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: '-100%',
-                width: '100%',
-                height: '100%',
-                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
-                animation: 'sophisticatedShine 2s ease-in-out infinite'
-              }} />
-            </div>
+              borderRadius: '1px',
+              transition: 'width 0.4s ease'
+            }} />
           </div>
           <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            fontSize: '0.75rem',
-            color: '#868e96'
+            fontSize: '0.65rem',
+            color: '#6c757d',
+            textAlign: 'right'
           }}>
-            <span>{progress}%</span>
-            <span>Professional Loading</span>
+            {progress}%
           </div>
         </div>
 
-        {/* Status */}
+        {/* Compact Status */}
         <p style={{
-          fontSize: '0.95rem',
+          fontSize: '0.75rem',
           color: '#495057',
-          marginBottom: '35px',
-          fontWeight: '500',
-          height: '24px'
+          marginBottom: '20px',
+          height: '15px'
         }}>
           {status}
         </p>
 
-        {/* Live Data Grid */}
+        {/* Compact Live Data */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '20px',
-          marginBottom: '25px'
-        }}>
-          <DataCard
-            icon="🖥️"
-            label="System"
-            value={`${liveData.systemMetrics.cpu}% CPU`}
-            sublabel={`${liveData.systemMetrics.memory}% RAM`}
-          />
-          <DataCard
-            icon="🌐"
-            label="Network"
-            value={liveData.systemMetrics.network}
-            sublabel="High Speed"
-          />
-          <DataCard
-            icon="🔧"
-            label="AI Tools"
-            value={`${liveData.aiTools}+`}
-            sublabel="Available"
-          />
-          <DataCard
-            icon="💼"
-            label="Live Jobs"
-            value={`${liveData.jobs}+`}
-            sublabel="Opportunities"
-          />
-        </div>
-
-        {/* Footer Info */}
-        <div style={{
-          fontSize: '0.75rem',
-          color: '#868e96',
           display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '15px'
+          justifyContent: 'space-between',
+          fontSize: '0.65rem',
+          color: '#6c757d',
+          textTransform: 'uppercase',
+          letterSpacing: '0.5px'
         }}>
-          <span>🔒 Secure</span>
-          <span>•</span>
-          <span>⚡ Fast</span>
-          <span>•</span>
-          <span>🎯 Professional</span>
+          <span>CPU {liveData.systemMetrics.cpu}%</span>
+          <span>RAM {liveData.systemMetrics.memory}%</span>
+          <span>{liveData.aiTools}+ Tools</span>
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes sophisticatedPulse {
+        @keyframes gentlePulse {
           0%, 100% { 
-            transform: scale(1);
             opacity: 1;
+            transform: scale(1);
           }
           50% { 
+            opacity: 0.8;
             transform: scale(1.05);
-            opacity: 0.9;
           }
         }
 
-        @keyframes sophisticatedShine {
-          0% { left: -100%; }
-          100% { left: 100%; }
-        }
-
-        @keyframes subtleMove {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-10px) rotate(1deg); }
+        @keyframes floatTriangle {
+          0%, 100% { 
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% { 
+            transform: translateY(-10px) rotate(5deg);
+          }
         }
       `}</style>
     </div>
   );
 };
 
-const DataCard = ({ icon, label, value, sublabel }) => (
-  <div style={{
-    background: 'rgba(248, 249, 250, 0.8)',
-    borderRadius: '12px',
-    padding: '16px',
-    border: '1px solid rgba(233, 236, 239, 0.6)',
-    textAlign: 'center',
-    transition: 'all 0.3s ease'
-  }}>
-    <div style={{ fontSize: '1.25rem', marginBottom: '6px' }}>{icon}</div>
-    <div style={{
-      fontSize: '0.7rem',
-      color: '#6c757d',
-      fontWeight: '600',
-      textTransform: 'uppercase',
-      letterSpacing: '0.5px',
-      marginBottom: '4px'
-    }}>
-      {label}
-    </div>
-    <div style={{
-      fontSize: '0.9rem',
-      fontWeight: '700',
-      color: '#212529',
-      marginBottom: '2px'
-    }}>
-      {value}
-    </div>
-    <div style={{
-      fontSize: '0.65rem',
-      color: '#868e96'
-    }}>
-      {sublabel}
-    </div>
-  </div>
-);
-
-export default SophisticatedBootLoader;
+export default CompactSleekLoader;
