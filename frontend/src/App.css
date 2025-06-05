@@ -488,58 +488,58 @@ body {
 
 .start-menu-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 12px;  /* Reduced from 16px */
-  margin-bottom: 12px;   /* Reduced from 16px */
+  padding-bottom: 10px;  /* Reduced from 12px */
+  margin-bottom: 10px;   /* Reduced from 12px */
 }
 
 .start-menu-title {
-  font-size: 1rem;      /* Reduced from 1.125rem */
+  font-size: 0.85rem;    /* Reduced from 1rem */
   font-weight: 700;
   color: var(--white-pure);
-  margin-bottom: 3px;   /* Reduced from 4px */
+  margin-bottom: 2px;    /* Reduced from 3px */
 }
 
 .start-menu-subtitle {
-  font-size: 0.75rem;   /* Reduced from 0.875rem */
+  font-size: 0.65rem;    /* Reduced from 0.75rem */
   color: var(--silver-accent);
   font-weight: 500;
 }
 
 .start-menu-section {
-  margin-bottom: 15px;  /* Reduced from 20px */
+  margin-bottom: 12px;   /* Reduced from 15px */
 }
 
 .section-title {
-  font-size: 0.65rem;   /* Reduced from 0.7rem */
+  font-size: 0.55rem;    /* Reduced from 0.65rem */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: var(--accent-blue);
-  margin-bottom: 10px;  /* Reduced from 12px */
+  margin-bottom: 8px;    /* Reduced from 10px */
 }
 
 .menu-item {
   display: flex;
   align-items: center;
-  padding: 9px;         /* Reduced from 12px */
-  border-radius: 6px;   /* Reduced from 8px */
+  padding: 7px;          /* Reduced from 9px */
+  border-radius: 5px;    /* Reduced from 6px */
   cursor: pointer;
   transition: all var(--transition-fast);
-  font-size: 0.8rem;    /* Reduced from 0.875rem */
+  font-size: 0.7rem;     /* Reduced from 0.8rem */
   color: var(--silver-accent);
-  margin-bottom: 3px;   /* Reduced from 4px */
+  margin-bottom: 2px;    /* Reduced from 3px */
   font-weight: 500;
 }
 
 .menu-item:hover {
   background: rgba(255, 255, 255, 0.1);
   color: var(--white-pure);
-  transform: translateX(3px);  /* Reduced from 4px */
+  transform: translateX(2px);  /* Reduced from 3px */
 }
 
 .menu-icon {
-  margin-right: 9px;    /* Reduced from 12px */
-  font-size: 0.9rem;    /* Reduced from 1rem */
+  margin-right: 7px;     /* Reduced from 9px */
+  font-size: 0.8rem;     /* Reduced from 0.9rem */
 }
 
 .start-menu-overlay {
