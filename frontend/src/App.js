@@ -152,30 +152,18 @@ const ThriveRemoteDesktop = () => {
       'QuantumTerminal': <QuantumTerminal />,
       'ProfessionalSettings': <ProfessionalSettings />,
       'CalculatorApp': <CalculatorApp />,
-      'MediaPlayerApp': <MediaPlayerApp />,
       'SystemStatusApp': <SystemStatusApp />,
+      'CompactCMS': <CompactCMS />,
       // Entertainment components
-      'MusicEntertainment': (
-        <div style={{padding: '20px', textAlign: 'center', background: 'linear-gradient(135deg, #0D0D0D, #2D2D2D)', color: '#D4AF37'}}>
-          <h3 style={{fontFamily: 'Playfair Display', marginBottom: '15px'}}>🎵 Entertainment Music Hub</h3>
-          <p style={{opacity: 0.8, fontSize: '0.9rem'}}>Luxury music integration active in taskbar player</p>
-          <p style={{opacity: 0.6, marginTop: '10px', fontSize: '0.8rem'}}>Sophisticated audio experience with curated playlists</p>
-          <div style={{marginTop: '20px'}}>
-            <button className="luxury-btn" onClick={() => alert('Music player features available in taskbar!')}>
-              🎧 Access Player
-            </button>
-          </div>
-        </div>
-      ),
       'VirtualPetsHub': (
-        <div style={{padding: '20px', background: 'linear-gradient(135deg, #0D0D0D, #2D2D2D)', color: '#D4AF37'}}>
-          <h3 style={{fontFamily: 'Playfair Display', marginBottom: '15px'}}>🐾 Virtual Companions Entertainment</h3>
-          <p style={{opacity: 0.8, fontSize: '0.9rem'}}>AI-powered desktop pets for entertainment while job hunting</p>
+        <div style={{padding: '20px', background: 'linear-gradient(135deg, #f8f9fa, #e9ecef)', color: '#495057'}}>
+          <h3 style={{fontFamily: 'system-ui', marginBottom: '15px', color: '#495057'}}>🐾 Virtual Companions</h3>
+          <p style={{opacity: 0.8, fontSize: '0.9rem'}}>AI-powered desktop pets for entertainment while working</p>
           <div style={{marginTop: '15px', display: 'flex', gap: '10px', flexWrap: 'wrap'}}>
-            <button className="luxury-btn" onClick={() => window.open('/virtual-pets-tool/', '_blank')}>
+            <button className="sleek-btn" onClick={() => window.open('/virtual-pets-tool/', '_blank')}>
               🥚 Cosmic Pets Game
             </button>
-            <button className="luxury-btn" onClick={() => window.open('/virtual-desktop-pets/', '_blank')}>
+            <button className="sleek-btn" onClick={() => window.open('/virtual-desktop-pets/', '_blank')}>
               🐾 Desktop Pets
             </button>
           </div>
@@ -184,7 +172,7 @@ const ThriveRemoteDesktop = () => {
     };
     
     const component = componentMap[componentName] || (
-      <div style={{padding: '20px', textAlign: 'center', background: 'linear-gradient(135deg, #0D0D0D, #2D2D2D)', color: '#D4AF37'}}>
+      <div style={{padding: '20px', textAlign: 'center', background: 'linear-gradient(135deg, #f8f9fa, #e9ecef)', color: '#495057'}}>
         <h3>🚀 Coming Soon</h3>
         <p>This application is under development</p>
       </div>
