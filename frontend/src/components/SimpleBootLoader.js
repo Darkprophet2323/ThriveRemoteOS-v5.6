@@ -108,23 +108,13 @@ const CompactSleekLoader = ({ onComplete }) => {
         maxWidth: '320px',
         width: '90%'
       }}>
-        
-        {/* Sleek Logo */}
-        <div style={{
-          fontSize: '2.5rem',
-          marginBottom: '15px',
-          color: '#6c757d',
-          animation: 'gentlePulse 3s ease-in-out infinite'
-        }}>
-          🤖
-        </div>
 
         {/* Compact Title */}
         <h1 style={{
-          fontSize: '1.6rem',
+          fontSize: '1.8rem',
           fontWeight: '300',
-          color: '#495057',
-          marginBottom: '5px',
+          color: '#212529',
+          marginBottom: '8px',
           letterSpacing: '1px'
         }}>
           ThriveRemoteOS
@@ -132,8 +122,8 @@ const CompactSleekLoader = ({ onComplete }) => {
 
         <p style={{
           fontSize: '0.8rem',
-          color: '#6c757d',
-          marginBottom: '25px',
+          color: '#495057',
+          marginBottom: '30px',
           fontWeight: '400',
           textTransform: 'uppercase',
           letterSpacing: '0.5px'
@@ -156,14 +146,14 @@ const CompactSleekLoader = ({ onComplete }) => {
             <div style={{
               width: `${progress}%`,
               height: '100%',
-              background: 'linear-gradient(90deg, #6c757d, #495057)',
+              background: 'linear-gradient(90deg, #495057, #212529)',
               borderRadius: '1px',
               transition: 'width 0.4s ease'
             }} />
           </div>
           <div style={{
             fontSize: '0.65rem',
-            color: '#6c757d',
+            color: '#495057',
             textAlign: 'right'
           }}>
             {progress}%
@@ -173,7 +163,7 @@ const CompactSleekLoader = ({ onComplete }) => {
         {/* Compact Status */}
         <p style={{
           fontSize: '0.75rem',
-          color: '#495057',
+          color: '#212529',
           marginBottom: '20px',
           height: '15px'
         }}>
@@ -185,7 +175,7 @@ const CompactSleekLoader = ({ onComplete }) => {
           display: 'flex',
           justifyContent: 'space-between',
           fontSize: '0.65rem',
-          color: '#6c757d',
+          color: '#495057',
           textTransform: 'uppercase',
           letterSpacing: '0.5px'
         }}>
@@ -196,17 +186,6 @@ const CompactSleekLoader = ({ onComplete }) => {
       </div>
 
       <style jsx>{`
-        @keyframes gentlePulse {
-          0%, 100% { 
-            opacity: 1;
-            transform: scale(1);
-          }
-          50% { 
-            opacity: 0.8;
-            transform: scale(1.05);
-          }
-        }
-
         @keyframes floatTriangle {
           0%, 100% { 
             transform: translateY(0px) rotate(0deg);
