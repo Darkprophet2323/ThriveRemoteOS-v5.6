@@ -1081,7 +1081,7 @@ function DesktopEnvironment() {
   }, [rightClickMenu.show]);
 
   if (!bootComplete) {
-    return <SophisticatedBootLoader onComplete={handleLoadingComplete} />;
+    return <CompactSleekLoader onComplete={handleLoadingComplete} />;
   }
 
   return <ThriveRemoteDesktop />;
