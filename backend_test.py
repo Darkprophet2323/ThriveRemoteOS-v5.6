@@ -284,6 +284,7 @@ def run_tests():
     suite.addTest(ThriveRemoteOSAPITester('test_dashboard_stats'))
     suite.addTest(ThriveRemoteOSAPITester('test_dashboard_live_stats'))
     suite.addTest(ThriveRemoteOSAPITester('test_content_ai_tools'))
+    suite.addTest(ThriveRemoteOSAPITester('test_jobs_live'))
     
     # Create a test runner
     runner = unittest.TextTestRunner(verbosity=2)
