@@ -488,58 +488,58 @@ body {
 
 .start-menu-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 16px;
-  margin-bottom: 16px;
+  padding-bottom: 12px;  /* Reduced from 16px */
+  margin-bottom: 12px;   /* Reduced from 16px */
 }
 
 .start-menu-title {
-  font-size: 1.125rem;
+  font-size: 1rem;      /* Reduced from 1.125rem */
   font-weight: 700;
   color: var(--white-pure);
-  margin-bottom: 4px;
+  margin-bottom: 3px;   /* Reduced from 4px */
 }
 
 .start-menu-subtitle {
-  font-size: 0.875rem;
+  font-size: 0.75rem;   /* Reduced from 0.875rem */
   color: var(--silver-accent);
   font-weight: 500;
 }
 
 .start-menu-section {
-  margin-bottom: 20px;
+  margin-bottom: 15px;  /* Reduced from 20px */
 }
 
 .section-title {
-  font-size: 0.7rem;
+  font-size: 0.65rem;   /* Reduced from 0.7rem */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: var(--accent-blue);
-  margin-bottom: 12px;
+  margin-bottom: 10px;  /* Reduced from 12px */
 }
 
 .menu-item {
   display: flex;
   align-items: center;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 9px;         /* Reduced from 12px */
+  border-radius: 6px;   /* Reduced from 8px */
   cursor: pointer;
   transition: all var(--transition-fast);
-  font-size: 0.875rem;
+  font-size: 0.8rem;    /* Reduced from 0.875rem */
   color: var(--silver-accent);
-  margin-bottom: 4px;
+  margin-bottom: 3px;   /* Reduced from 4px */
   font-weight: 500;
 }
 
 .menu-item:hover {
   background: rgba(255, 255, 255, 0.1);
   color: var(--white-pure);
-  transform: translateX(4px);
+  transform: translateX(3px);  /* Reduced from 4px */
 }
 
 .menu-icon {
-  margin-right: 12px;
-  font-size: 1rem;
+  margin-right: 9px;    /* Reduced from 12px */
+  font-size: 0.9rem;    /* Reduced from 1rem */
 }
 
 .start-menu-overlay {
